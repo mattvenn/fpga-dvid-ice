@@ -1,0 +1,26 @@
+set_io LED1 99 # right
+set_io LED2 98 # bot
+set_io LED3 97 # left
+set_io LED4 96 # top
+set_io LED5 95 # centre green
+set_io clk 21
+
+# J1
+set_io PIO0[0] 112 # Pin 3
+set_io PIO0[1] 113 # Pin 4
+set_io PIO0[2] 114 # Pin 5
+set_io PIO0[3] 115 # Pin 6
+set_io PIO0[4] 116 # Pin 7
+set_io PIO0[5] 117 # Pin 8
+set_io PIO0[6] 118 # Pin 9
+set_io PIO0[7] 119 # Pin 10 MSB
+
+# Connector J3
+#set_io PIO2_17 62 # Pin 3
+#set_io PIO2_16 61 # Pin 4
+#set_io PIO2_15 60 # Pin 5
+#set_io PIO2_14 56 # Pin 6
+#set_io PIO2_13 48 # Pin 7
+#set_io PIO2_12 47 # Pin 8
+#set_io PIO2_11 45 # Pin 9
+#set_io PIO2_10 44 # Pin 10
