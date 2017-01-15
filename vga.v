@@ -73,7 +73,7 @@ module vga (
                 if(vcounter < 10 || vcounter > 589 || hcounter < 10 || hcounter > 789) begin
                    red  <= 3'b000;
                    blue <= 3'b111;
-                   green <=3'b000;
+                   green <=3'b001;
                 end
             end
         end

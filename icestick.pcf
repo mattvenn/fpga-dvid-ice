@@ -1,8 +1,8 @@
-set_io LED1 99 # right
-set_io LED2 98 # bot
-set_io LED3 97 # left
-set_io LED4 96 # top
-set_io LED5 95 # centre green
+#set_io LED1 99 # right
+#set_io LED2 98 # bot
+#set_io LED3 97 # left
+#set_io LED4 96 # top
+#set_io LED5 95 # centre green
 set_io clk 21
 
 # J1
