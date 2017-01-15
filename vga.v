@@ -39,7 +39,7 @@ module vga (
 	input wire clk,
     output reg [2:0] red,
     output reg [2:0] green,
-    output reg [1:0] blue,
+    output reg [2:0] blue,
     output reg hsync,
     output reg vsync,
     output reg blank
@@ -52,7 +52,7 @@ module vga (
         // black everywhere
         red   <= 3'b0;
         green <= 3'b0;
-        blue  <= 2'b0;
+        blue  <= 3'b0;
 
         // sync
         hsync <= 1'b0;
@@ -72,7 +72,7 @@ module vga (
             if(hcounter < 800) begin
                 if(vcounter < 10 || vcounter > 589 || hcounter < 10 || hcounter > 789) begin
                    red  <= 3'b000;
-                   blue <= 2'b11;
+                   blue <= 3'b111;
                    green <=3'b000;
                 end
             end

@@ -18,6 +18,11 @@ all: $(PROJ).rpt $(PROJ).bin
 %.rpt: %.asc
 	icetime -d $(DEVICE) -mtr $@ $<
 
+debug-dvi:
+	iverilog -o dvi vga.v dvid.v dvid_tb.v
+	vvp dvi -fst
+	gtkwave test.vcd gtk-dvid.gtkw
+
 debug-vga:
 	iverilog -o vga vga.v vga_tb.v
 	vvp vga -fst
