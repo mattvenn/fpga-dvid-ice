@@ -22,6 +22,10 @@ module test;
         dvid_test.high_speed_sr[1],
         dvid_test.high_speed_sr[2],
         dvid_test.high_speed_sr[3],
+        dvid_test.output_bits[0],
+        dvid_test.output_bits[1],
+        dvid_test.output_bits[2],
+        dvid_test.output_bits[3],
         test);
 //     $dumpoff;
 //    # 2000000;
