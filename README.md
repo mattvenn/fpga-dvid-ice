@@ -6,14 +6,30 @@ Minimal DVI-D output based on Mike Field's work (see credits below).
 
 * differential lines are working
 * can set different clocks speeds for testing (need lower clock for my scope)
-* RGB and clock are often distorted
 * can't get generate loop to work to create the differential DDR blocks
 
-![signals OK](docs/TEK00000.PNG)
+## Scope pics
 
-![signals distorted](docs/TEK00001.PNG)
+Following pics are with the x5 clock for DVI output set to 50MHz (target is
+200MHz). Top 4 traces are Clock, R, G, B. Bottom 5 traces are 12MHz clock, DVI
+clock (50MHz), VGA clock (10MHz), blank, vsync, hsync.
 
-I think this is a clock problem to do with getting the data to the DDR blocks.
+![hsync and vsync zoomed out](docs/TEK00001.PNG)
+
+![hsync zoomed in](docs/TEK00002.PNG)
+
+I can just about read the lines, it would be good to see the logic levels
+recovered by the monitor when adding the negative sides of the signals.
+
+## GTKwave traces
+
+I think these show that the verilog is correct, at least it is what I expect.
+
+![blanking](docs/blank.png)
+
+![hsync](docs/hsync.png)
+
+![rgb](docs/rgb.png)
 
 # Electrical connections
 
