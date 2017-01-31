@@ -2,7 +2,7 @@ PROJ = vga
 PIN_DEF = icestick.pcf
 DEVICE = hx1k
 
-SRC = top.v dvid.v vga.v
+SRC = top.v dvid.v vga.v clockdiv.v
 
 all: $(PROJ).rpt $(PROJ).bin
 
