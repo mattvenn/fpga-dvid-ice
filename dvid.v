@@ -20,7 +20,6 @@ module dvid (
     reg [9:0] high_speed_sr [3:0];
     reg [4:0] high_speed_latch = 5'b00001;
     reg [1:0] output_bits [3:0];
-//    reg serial_output [3:0]; // used with a buffer on hamsters work?
 
     assign ctls[0] = { vsync, hsync };
     assign colours[0] = red;
@@ -60,6 +59,8 @@ module dvid (
         end
     end
 
+    wire [3:0] serial_outputs;
+
     // from hamster's work, this is missing the output buffer and the 2bit output_bits for each channel
     always@(posedge clkx5) begin
         for(i = 0; i <= 3; i = i + 1) begin
@@ -86,6 +87,7 @@ module dvid (
     .D_OUT_0 (output_bits[0][0]), // Non-inverted
     .D_OUT_1 (output_bits[0][1]), // Non-inverted
     );
+
 
     // Inverting, N-side of pair
     defparam hdmin0.PIN_TYPE = 6'b010000 ;
