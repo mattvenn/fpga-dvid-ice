@@ -4,7 +4,7 @@ Minimal DVI-D output based on Mike Field's work (see credits below).
 
 # Current status
 
-* differential lines are working
+* differential DDR lines are working
 * can set different clocks speeds for testing (need lower clock for my scope)
 * can't get generate loop to work to create the differential DDR blocks
 
