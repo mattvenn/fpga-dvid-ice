@@ -45,6 +45,7 @@ module dvid (
                 endcase
             end else begin
                 case(colours[i])
+                    /*
                     3'b000: symbols[i] <= 10'b0111110000;
                     3'b001: symbols[i] <= 10'b0001001111;
                     3'b010: symbols[i] <= 10'b0111001100;
@@ -53,7 +54,8 @@ module dvid (
                     3'b101: symbols[i] <= 10'b1000111001;
                     3'b110: symbols[i] <= 10'b1000011011;
                     default: symbols[i] <= 10'b1011110000;
-                    //default: symbols[i] <= 10'b1111100000;
+                    */
+                    default: symbols[i] <= 10'b0000011111;
                 endcase
             end
         end

@@ -1,7 +1,7 @@
 `default_nettype none
-//`define 50M_PLL
+`define 50M_PLL
 //`define 100M_PLL
-`define 200M_PLL
+//`define 200M_PLL
 
 module top (
 	input  clk,
@@ -50,10 +50,10 @@ module top (
 
     assign PIO0[0] = hsync;
     assign PIO0[1] = vsync;
-    assign PIO0[2] = vga_clk;
-    assign PIO0[3] = blank;
-    assign PIO0[4] = clk;
-    assign PIO0[5] = clkx5;
+    assign PIO0[2] = blank;
+    assign PIO0[3] = vga_clk;
+    assign PIO0[4] = clkx5;
+    assign PIO0[5] = clk;
 
     clk_divn clockdiv(.clk(clkx5), .clk_out(vga_clk));
 

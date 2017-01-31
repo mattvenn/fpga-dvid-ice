@@ -4,8 +4,15 @@ Minimal DVI-D output based on Mike Field's work (see credits below).
 
 # Current status
 
-RGB and Clock differential lines seem correct but monitor doesn't get the
-signal.
+* differential lines are working
+* can set different clocks speeds for testing (need lower clock for my scope)
+* RGB and clock are often distorted
+
+![signals OK](docs/TEK00000.PNG)
+
+![signals distorted](docs/TEK00001.PNG)
+
+I think this is a clock problem to do with getting the data to the DDR blocks.
 
 # Resources / Credits
 
