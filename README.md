@@ -7,6 +7,8 @@ Minimal DVI-D output based on Mike Field's work (see credits below).
 * differential DDR lines are working
 * can set different clocks speeds for testing (need lower clock for my scope)
 * can't get generate loop to work to create the differential DDR blocks
+* TMDS output is not supported by the lattice chip on the icestick and mystorm
+ boards
 
 ## GTKwave traces
 
@@ -50,6 +52,12 @@ There are no external components, the differential lines are going straight to
 the DVI-D breakout. If I can get something looking promising, the plan is to
 make a PMOD DVI-D breakout.
 
+Update: tried with 1nf cap on each differential line and a 100R termination
+resistor - outputs look very bad and monitor doesn't detect signal. Next step is
+to try with a board and SMT components to minimise cross talk.
+
+![with RC network](docs/TEK00003.PNG)
+
 # Resources / Credits
 
 lots of thanks to Mike Field of [hamsterworks](http://hamsterworks.co.nz) for
@@ -60,3 +68,4 @@ this project.
 * http://hamsterworks.co.nz/mediawiki/index.php/FPGA_VGA
 * https://github.com/jeelabs/fpga/blob/master/quartus/vga1024/top.vga
 * ice storm: http://www.clifford.at/icestorm/
+* [TMDS/LVDS question](http://electronics.stackexchange.com/questions/130942/transmitting-hdmi-dvi-over-an-fpga-with-no-support-for-tmds) Link to silabs pdf shows a way to interface between LVDS and TMDS with R and 2xC
