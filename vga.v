@@ -1,7 +1,8 @@
 /*
-generate test pattern at 800 x 600 @ 60Hz
+generate test pattern at 640 x 480 @ 60Hz
+640x480x60  25.175  39.72   640 16  96  48  800 -   480 10  2   33  525 - 
 
-total pixels is 1056 x 628 @ 60Hz = 39.79MHz
+total pixels is 800 x 525 @ 60Hz = 25.2Mhz = 39.6ns
 
 Timings from :
 
@@ -13,25 +14,22 @@ code adapted from VHDL :
 * http://hamsterworks.co.nz/mediawiki/index.php/FPGA_VGA
 * http://hamsterworks.co.nz/mediawiki/index.php/Dvid_test#vga.vhd
 
-MHz     40.00
-ns      25.00
-
 Horizontal Timing
-800     h visible
-40      front
-128     sync
-88      back
-1056    whole
-+       hsync
+640     h visible
+16      front
+96      sync
+48      back
+800     whole
+-       hsync
 
 Vertical Timing
 
-600     v visible
-1       front
-4       sync
-23      back
-628     whole
-+       vsync
+480     v visible
+10      front
+2       sync
+33      back
+525     whole
+-       vsync
 */
 
 `default_nettype none
@@ -55,35 +53,33 @@ module vga (
         blue  <= 3'b0;
 
         // sync
-        hsync <= 1'b0;
-        vsync <= 1'b0;
+        hsync <= 1'b1;
+        vsync <= 1'b1;
         blank <= 1'b0;
 
         // sync pulses
-        if(hcounter > 839 && hcounter < 967)
-           hsync <= 1'b1;
-        if(vcounter > 600 && vcounter < 604)
-           vsync <= 1'b1;
-        if(hcounter > 799 || vcounter > 599)
+        if(hcounter > 655 && hcounter < 751)
+           hsync <= 1'b0;
+        if(vcounter > 489 && vcounter < 491)
+           vsync <= 1'b0;
+        if(hcounter > 639 || vcounter > 479)
            blank <= 1'b1;
 
-        // draw a blue border
-        if(vcounter < 600) begin
-            if(hcounter < 800) begin
-                if(vcounter < 10 || vcounter > 589 || hcounter < 10 || hcounter > 789) begin
-                   red  <= 3'b000;
-                   blue <= 3'b111;
-                   green <=3'b001;
-                end
+        // draw a blue screen
+        if(vcounter < 480) begin
+            if(hcounter < 600) begin
+               red  <= 3'b000;
+               blue <= 3'b111;
+               green <=3'b000;
             end
         end
     end
 
     // increment counters and wrap them
     always@(posedge clk) begin
-        if(hcounter == 1055) begin
+        if(hcounter == 799) begin
             hcounter <= 0;
-            if(vcounter == 627)
+            if(vcounter == 524)
                 vcounter <= 0;
             else
                 vcounter <= vcounter + 1;
