@@ -1,6 +1,6 @@
 `default_nettype none
-`define 50M_PLL
-//`define 100M_PLL
+//`define 50M_PLL
+`define 126M_PLL // correct for 25mhz vga clock
 //`define 200M_PLL
 
 module top (
@@ -26,9 +26,9 @@ module top (
         .DIVQ(3'b100),
         .FILTER_RANGE(3'b001)
         `endif
-        `ifdef 100M_PLL
+        `ifdef 126M_PLL
         .DIVR(4'b0000),
-        .DIVF(7'b1000010),
+        .DIVF(7'b1010011),
         .DIVQ(3'b011),
         .FILTER_RANGE(3'b001)
         `endif

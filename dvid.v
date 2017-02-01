@@ -10,8 +10,8 @@ module dvid (
     input wire [2:0] green,
     input wire [2:0] blue,
 
-    output wire [3:0] hdmi_p,
-    output wire [3:0] hdmi_n
+    output wire [0:3] hdmi_p,
+    output wire [0:3] hdmi_n
     );
 
     wire [1:0] ctls [2:0];

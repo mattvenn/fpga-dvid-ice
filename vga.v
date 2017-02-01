@@ -1,6 +1,5 @@
 /*
 generate test pattern at 640 x 480 @ 60Hz
-640x480x60  25.175  39.72   640 16  96  48  800 -   480 10  2   33  525 - 
 
 total pixels is 800 x 525 @ 60Hz = 25.2Mhz = 39.6ns
 
@@ -62,6 +61,7 @@ module vga (
            hsync <= 1'b0;
         if(vcounter > 489 && vcounter < 491)
            vsync <= 1'b0;
+        // blank is whenever outside of viewable area
         if(hcounter > 639 || vcounter > 479)
            blank <= 1'b1;
 
