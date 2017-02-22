@@ -2,13 +2,18 @@
 
 Minimal DVI-D output based on Mike Field's work (see credits below).
 
+TMDS output is not supported by the lattice chip on the icestick and mystorm
+boards. Unable to get good enough signals with a breadboard so [made a
+PCB](https://github.com/mattvenn/kicad/tree/master/dvi-pmod) which shows
+promise.
+
+[pictures](https://goo.gl/photos/ScRRi142sbwstPGr6)
+
 # Current status
 
-* differential DDR lines are working
-* can set different clocks speeds for testing (need lower clock for my scope)
-* can't get generate loop to work to create the differential DDR blocks
-* TMDS output is not supported by the lattice chip on the icestick and mystorm
- boards
+* green screen output 640 x 480 @ 60Hz!
+* test patterns have some problems - unsure what is happening
+* 'converting' LVDS to TMDS with [resistors and capacitors](https://github.com/mattvenn/kicad/tree/master/dvi-pmod)
 
 ## GTKwave traces
 
@@ -45,18 +50,9 @@ recovered by the monitor when adding the negative sides of the signals.
 
 ## Electrical connections
 
-I'm not even sure if I can do this on a breadboard, here's the [current messy
-status](https://goo.gl/photos/bQrL8b5GGyBhnb3S8)
-
-There are no external components, the differential lines are going straight to
-the DVI-D breakout. If I can get something looking promising, the plan is to
-make a PMOD DVI-D breakout.
-
-Update: tried with 1nf cap on each differential line and a 100R termination
-resistor - outputs look very bad and monitor doesn't detect signal. Next step is
-to try with a board and SMT components to minimise cross talk.
-
-![with RC network](docs/TEK00003.PNG)
+* Breadboarded version [current messy
+status](https://goo.gl/photos/bQrL8b5GGyBhnb3S8) didn't work.
+* New PMOD DVID PCB shows promise.
 
 # Resources / Credits
 
