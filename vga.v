@@ -68,7 +68,7 @@ module vga (
         // draw a blue screen
         if(vcounter < 480) begin
             if(hcounter < 600) begin
-               red  <= 3'b000;
+               red  <= 3'b111;
                blue <= 3'b111;
                green <=3'b000;
             end
