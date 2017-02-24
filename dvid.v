@@ -38,6 +38,7 @@ module dvid (
             if(blank == 1'b1) begin
                 case(ctls[i])
                     // these are output LSB first so are the reverse as to what is in the spec
+                    // hsync and vsync are only sent on blue channel
                     2'b00: symbols[i] <= 10'b1101010100;
                     2'b01: symbols[i] <= 10'b0010101011; // hsync
                     2'b10: symbols[i] <= 10'b0101010100; // vsync
@@ -45,14 +46,14 @@ module dvid (
                 endcase
             end else begin
                 case(colours[i])
-                    3'b000: symbols[i] <= 10'b0111110000;
-                    3'b001: symbols[i] <= 10'b0001001111;
-                    3'b010: symbols[i] <= 10'b0111001100;
-                    3'b011: symbols[i] <= 10'b0010001111;
-                    3'b100: symbols[i] <= 10'b0000101111;
-                    3'b101: symbols[i] <= 10'b1000111001;
-                    3'b110: symbols[i] <= 10'b1000011011;
-                    default: symbols[i] <= 10'b1011110000;
+                    3'b000:  symbols[i] <= 10'b0111110000; // 0x10
+                    3'b001:  symbols[i] <= 10'b0001001111; // 0x2F
+                    3'b010:  symbols[i] <= 10'b0111001100; // 0x54
+                    3'b011:  symbols[i] <= 10'b0010001111; // 0x6F
+                    3'b100:  symbols[i] <= 10'b0000101111; // 0x8F
+                    3'b101:  symbols[i] <= 10'b1000111001; // 0xB4
+                    3'b110:  symbols[i] <= 10'b1000011011; // 0xD2
+                    default: symbols[i] <= 10'b1011110000; // 0xEF
                 endcase
             end
         end
