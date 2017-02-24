@@ -65,13 +65,13 @@ module vga (
         if(hcounter > 639 || vcounter > 479)
            blank <= 1'b1;
 
-        // draw a blue screen
+        // draw a test pattern
         if(vcounter < 480) begin
-            if(hcounter < 600) begin
-               red  <= 3'b111;
-               blue <= 3'b111;
-               green <=3'b000;
-            end
+            if(hcounter < 640) begin
+               red <= vcounter[6:4];
+               blue <= hcounter[6:5];
+               green <= vcounter[4:3];
+           end
         end
     end
 
@@ -79,9 +79,9 @@ module vga (
     always@(posedge clk) begin
         if(hcounter == 799) begin
             hcounter <= 0;
-            if(vcounter == 524)
+            if(vcounter == 524) begin
                 vcounter <= 0;
-            else
+            end else
                 vcounter <= vcounter + 1;
             end
         else
