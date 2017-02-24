@@ -13,6 +13,7 @@ promise.
 
 * green screen output 640 x 480 @ 60Hz!
 * test patterns have some problems - unsure what is happening
+* very unstable - small changes to vga timings have big effects
 * 'converting' LVDS to TMDS with [resistors and capacitors](https://github.com/mattvenn/kicad/tree/master/dvi-pmod)
 
 ## GTKwave traces

@@ -69,7 +69,7 @@ module vga (
         if(vcounter < 480) begin
             if(hcounter < 640) begin
                red <= vcounter[6:4];
-               blue <= hcounter[6:5];
+               blue <= hcounter[5:4];
                green <= vcounter[4:3];
            end
         end
